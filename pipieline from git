@@ -9,6 +9,7 @@ node{
     
     //checkout code stage
     stage ('checkout code'){
+    slackNotification ('started')
         git branch: 'development', credentialsId: '3724172a-88a3-441a-a6a2-988a5bc853cc', url: 'https://github.com/aiden750/maven-web-application.git'
     }
     
@@ -62,7 +63,7 @@ def slackNotification(String buildStatus = 'STARTED') {
   // Override default values based on build status
   if (buildStatus == 'STARTED') {
     color = 'YELLOW'
-    colorCode = '#FFFF00'
+    colorCode = '#AA98A9'
   } else if (buildStatus == 'SUCCESS') {
     color = 'GREEN'
     colorCode = '#00FF00'
